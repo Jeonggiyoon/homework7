@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText e1, e2;
-    Button b1, b2, b3, b4;
+    Button b1, b2, b3, b4, b5;
     TextView t1;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,48 +24,107 @@ public class MainActivity extends AppCompatActivity {
         b2 = (Button) findViewById(R.id.button2);
         b3 = (Button) findViewById(R.id.button3);
         b4 = (Button) findViewById(R.id.button4);
+        b5 = (Button) findViewById(R.id.button5);
 
         b1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                int num1 = Integer.parseInt(e1.getText().toString());
-                int num2 = Integer.parseInt(e2.getText().toString());
-                int num3 = num1 + num2;
+                if (e1.getText().toString().equals("") || e2.getText().toString().equals("")) {
+                        Toast.makeText(getApplicationContext(),
+                                "값을 입력하세요",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                } else {
 
-                t1.setText(num3 + " ");
+                    double num1 = Double.parseDouble(e1.getText().toString());
+                    double num2 = Double.parseDouble(e2.getText().toString());
+                    double num3 = num1 + num2;
+
+                    t1.setText(num3 + " ");
+                }
             }
         });
 
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int num1 = Integer.parseInt(e1.getText().toString());
-                int num2 = Integer.parseInt(e2.getText().toString());
-                int num3 = num1 - num2;
+                if (e1.getText().toString().equals("") || e2.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                } else {
 
-                t1.setText(num3 + " ");
+                    double num1 = Double.parseDouble(e1.getText().toString());
+                    double num2 = Double.parseDouble(e2.getText().toString());
+                    double num3 = num1 - num2;
+
+                    t1.setText(num3 + " ");
+                }
             }
         });
 
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int num1 = Integer.parseInt(e1.getText().toString());
-                int num2 = Integer.parseInt(e2.getText().toString());
-                int num3 = num1 * num2;
+                if (e1.getText().toString().equals("") || e2.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                } else {
 
-                t1.setText(num3 + " ");
+                    double num1 = Double.parseDouble(e1.getText().toString());
+                    double num2 = Double.parseDouble(e2.getText().toString());
+                    double num3 = num1 * num2;
+
+                    t1.setText(num3 +  " ");
+                }
             }
         });
 
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int num1 = Integer.parseInt(e1.getText().toString());
-                int num2 = Integer.parseInt(e2.getText().toString());
-                int num3 = num1 / num2;
+                if (e1.getText().toString().equals("") || e2.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                } else {
 
-                t1.setText(num3 + " ");
+                    double num1 = Double.parseDouble(e1.getText().toString());
+                    double num2 = Double.parseDouble(e2.getText().toString());
+                    double num3 = num1 / num2;
+
+                    t1.setText(num3 + " ");
+                }
+            }
+        });
+
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (e1.getText().toString().equals("") || e2.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                } else if (e1.getText().toString().equals("0")) {
+                    Toast.makeText(getApplicationContext(),
+                            "0으로 나눌수 없습니다.",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }else {
+
+
+                    double num1 = Double.parseDouble(e1.getText().toString());
+                    double num2 = Double.parseDouble(e2.getText().toString());
+                    double num3 = num1 % num2;
+
+                    t1.setText(num3 + " ");
+                }
             }
         });
 
